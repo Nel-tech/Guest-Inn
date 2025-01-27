@@ -12,11 +12,9 @@ const BaseFooter = () => {
 
   return (
     <div className="mt-8">
-      <div className="w-full">
-        <hr className="border-gray-500" />
-      </div>
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col space-y-6 lg:flex-row lg:justify-center lg:space-x-12 lg:space-y-0">
+      <div className="w-full border-t border-gray-500"></div>
+      <div className="w-full px-6 py-6">
+        <div className="flex flex-col items-center space-y-6 lg:flex-row lg:justify-center lg:space-x-12 lg:space-y-0">
           <p className="text-sm text-white sm:text-base md:text-lg">
             &copy; {year} University guest-inn All rights reserved.
           </p>
@@ -61,14 +59,14 @@ const BaseFooter = () => {
 
 const DashboardFooter = () => {
   return (
-    <footer className="mt-32 bg-transparent">
-      <div className="mx-auto max-w-7xl px-4 lg:flex lg:justify-center">
-        <div className="w-full lg:max-w-5xl">
-          <hr className="border-gray-500" />
+    <footer className="mt-32 w-full bg-transparent">
+      <div className="w-full">
+        <div className="border-t border-gray-500"></div>
 
-          <div className="grid grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="px-6 py-12">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:justify-items-center md:gap-12 lg:grid-cols-4">
             {/* Company Info Section */}
-            <div className="space-y-6">
+            <div className="space-y-6 md:justify-self-center">
               <a href="#" className="block">
                 <span className="font-logoFonts text-xl text-[#32CD32] sm:text-2xl">
                   University guest
@@ -112,7 +110,7 @@ const DashboardFooter = () => {
             </div>
 
             {/* Company Links */}
-            <div className="mt-8 md:mt-0">
+            <div className="md:justify-self-center">
               <h6 className="mb-6 text-lg font-medium uppercase text-white">
                 Company
               </h6>
@@ -145,7 +143,7 @@ const DashboardFooter = () => {
             </div>
 
             {/* Support Links */}
-            <div className="mt-8 md:mt-0">
+            <div className="md:justify-self-center">
               <h6 className="mb-6 text-lg font-medium uppercase text-white">
                 Support
               </h6>
@@ -178,7 +176,7 @@ const DashboardFooter = () => {
             </div>
 
             {/* Legal Links */}
-            <div className="mt-8 md:mt-0">
+            <div className="md:justify-self-center">
               <h6 className="mb-6 text-lg font-medium uppercase text-white">
                 Legals
               </h6>
@@ -210,9 +208,9 @@ const DashboardFooter = () => {
               </ul>
             </div>
           </div>
-
-          <BaseFooter />
         </div>
+
+        <BaseFooter />
       </div>
     </footer>
   );

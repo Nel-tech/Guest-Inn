@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UniversityGuestHouse from './mainPage';
-import RoomPage from './roomPage';
+// import RoomPage from './roomPage';
 import SignUp from './signUp';
 import Login from './login';
 import './app.css';

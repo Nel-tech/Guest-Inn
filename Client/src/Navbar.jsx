@@ -35,10 +35,22 @@ const NavBar = () => {
             </a>
           </nav>
 
-          {/* Login Button */}
+<div className='flex gap-1.5'>
+  <div>
+
           <button className="rounded bg-green-400 px-4 py-2 text-black transition duration-300 hover:bg-green-500">
-            Login / Sign Up
+            Login 
           </button>
+  </div>
+
+ <div>
+
+          <button className="rounded bg-green-400 px-4 py-2 text-black transition duration-300 hover:bg-green-500">
+             Sign Up
+          </button>
+  </div>
+</div>
+          {/* Login Button */}
         </div>
       </header>
     </div>

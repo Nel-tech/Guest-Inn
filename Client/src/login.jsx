@@ -1,6 +1,33 @@
 import NavBar from "./Navbar";
+import { useState } from 'react';
+// import { useNavigate } from "react-router-dom";
+import { signin } from "../Service/Firebase/Auth";
 
 const Login = () => {
+    const [isLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+    // const Navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (isLogin) {
+        await signin(email, password);
+        window.alert('Login Successfully')
+        // Navigate('/summary')
+
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : 'An error occurred. Please try again.'
+      );
+    }
+  };
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center bg-zinc-900 px-4">
       {' '}
@@ -12,7 +39,7 @@ const Login = () => {
         <p className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">
           Login
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-6">
             <div>
               <label
@@ -24,6 +51,7 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
+                 onChange={(e)=> setEmail(e.target.value)}
                 className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none focus:ring-emerald-400 sm:text-base" // Adjust text and focus colors to yellow
               />
             </div>
@@ -37,6 +65,7 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
+                 onChange={(e)=>  setPassword(e.target.value)}
                 className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none focus:ring-emerald-400" // Adjust text and focus colors to yellow
               />
             </div>

@@ -83,10 +83,47 @@ const NavBar = () => {
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
+<<<<<<< HEAD
         <div className="flex justify-end p-4">
           <button className="text-green-400" onClick={() => setMenuOpen(false)}>
             <X size={28} />
+=======
+        <div className="container mx-auto flex items-center justify-between px-4 py-4">
+          {/* Logo */}
+          <div className="text-2xl font-bold text-green-400">
+            University Guest House
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden space-x-8 md:flex">
+            <a href="#" className="text-gray-300 hover:text-green-400">
+              Home
+            </a>
+            <a href="#" className="text-gray-300 hover:text-green-400">
+              About Us
+            </a>
+            <a href="#" className="text-gray-300 hover:text-green-400">
+              Contact Us
+            </a>
+          </nav>
+
+<div className='flex gap-1.5'>
+  <div>
+
+          <button className="rounded bg-green-400 px-4 py-2 text-black transition duration-300 hover:bg-green-500">
+            Login 
+>>>>>>> b2deaa1bae27d70be3e486f05dea555a541ddf5f
           </button>
+  </div>
+
+ <div>
+
+          <button className="rounded bg-green-400 px-4 py-2 text-black transition duration-300 hover:bg-green-500">
+             Sign Up
+          </button>
+  </div>
+</div>
+          {/* Login Button */}
         </div>
         <nav className="flex flex-col space-y-6 px-6 text-lg">
           <Link

@@ -302,7 +302,7 @@ export default function UniversityGuestHouse() {
                 key={testimonial.name}
                 className="rounded-lg bg-zinc-800 p-6 shadow-lg"
               >
-                <p className="mb-4 text-gray-300">"{testimonial.review}"</p>
+                <p className="mb-4 text-gray-300">{testimonial.review}</p>
                 <div className="font-bold text-green-400">
                   {testimonial.name}
                 </div>

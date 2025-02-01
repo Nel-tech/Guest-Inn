@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl bg-zinc-900 px-4 py-12 text-white sm:px-6 lg:px-8">
+    <div id="contact" className="mx-auto max-w-7xl bg-zinc-900 px-4 py-12 text-white sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold">

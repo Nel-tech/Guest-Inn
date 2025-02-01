@@ -1,4 +1,4 @@
-import { useState,useEffect} from 'react';
+import { useState} from 'react';
 import ContactPage from './contact-page';
 import {
   Wifi,
@@ -147,7 +147,7 @@ export default function UniversityGuestHouse() {
     <NavBar/>
 
       {/* Hero Section */}
-      <section className="relative flex h-screen items-center justify-center bg-[url('./assets/roomie.jpg')] bg-cover bg-center">
+      <section id="home" className="relative flex h-screen items-center justify-center bg-[url('./assets/roomie.jpg')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative z-10 px-4 text-center">
           <h1 className="mb-4 text-5xl font-bold text-green-400 sm:text-6xl md:text-7xl">
@@ -163,7 +163,7 @@ export default function UniversityGuestHouse() {
       </section>
 
       {/* About Section */}
-      <section className="px-4 py-16">
+      <section id="about" className="px-4 py-16">
         <div className="container mx-auto text-center">
           <h2 className="mb-8 text-4xl font-bold text-green-400 sm:text-5xl">
             About the Guest House

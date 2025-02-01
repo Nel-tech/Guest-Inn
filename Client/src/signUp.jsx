@@ -1,6 +1,39 @@
-import NavBar from "./Navbar";
-import DashboardFooter from "./footer";
+import NavBar from './Navbar';
+import DashboardFooter from './footer';
+// import { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { signup } from '../Service/Firebase/Auth';
 const SignUp = () => {
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [passwordConfirm, setConfirmPassword] = useState('');
+  // const [isSignup] = useState(true);
+
+  //  const Navigate = useNavigate();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   // if (password !== passwordConfirm) {
+  //   //   window.alert('Passwords do not match');
+  //   //   return;
+  //   // }
+
+  //   // try {
+  //   //   if (isSignup) {
+  //   //     await signup(email, password, passwordConfirm);
+  //   //     window.alert('Account successfully created');
+  //   //     Navigate('/menu');
+  //   //   }
+  //   // } catch (error) {
+  //   //   console.error('Error occurred:', error);
+  //   //   window.alert(
+  //   //     error instanceof Error
+  //   //       ? error.message
+  //   //       : 'An error occurred. Please try again.'
+  //   //   );
+  //   // }
+  // };
+
   return (
     <div className="bg-zinc-900">
       <NavBar />
@@ -24,7 +57,7 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
-                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-greeen-400 focus:border-2 focus:border-green-400 focus:outline-none" // Adjust text and focus colors to yellow
+                className="text-greeen-400 h-10 w-full rounded bg-zinc-900 p-3 text-sm focus:border-2 focus:border-green-400 focus:outline-none" // Adjust text and focus colors to yellow
                 required
               />
             </div>
@@ -33,7 +66,7 @@ const SignUp = () => {
                 className="mb-1 block text-sm font-bold text-gray-400"
                 htmlFor="username"
               >
-                Username
+                Full name
               </label>
               <input
                 type="text"
@@ -76,7 +109,7 @@ const SignUp = () => {
 
             <button
               type="submit"
-              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-green-500 hover:bg-green-700 text-sm font-semibold text-white sm:text-lg" // Adjust button gradient to match theme
+              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-green-500 text-sm font-semibold text-white hover:bg-green-700 sm:text-lg" // Adjust button gradient to match theme
             >
               Sign Up
             </button>

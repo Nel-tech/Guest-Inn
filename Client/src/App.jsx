@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UniversityGuestHouse from './mainPage';
-import RoomPage from './roomPage';
+import RoomPage from './RoomPage';
 import SignUp from './signUp';
 import BookingReceipt from './Receipt';
 import PaymentForm from './PaymentForm';
 import Login from './login';
-import './app.css';
 import './index.css';
 
 function App() {

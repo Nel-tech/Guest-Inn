@@ -83,11 +83,6 @@ const NavBar = () => {
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-<<<<<<< HEAD
-        <div className="flex justify-end p-4">
-          <button className="text-green-400" onClick={() => setMenuOpen(false)}>
-            <X size={28} />
-=======
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           {/* Logo */}
           <div className="text-2xl font-bold text-green-400">
@@ -112,7 +107,6 @@ const NavBar = () => {
 
           <button className="rounded bg-green-400 px-4 py-2 text-black transition duration-300 hover:bg-green-500">
             Login 
->>>>>>> b2deaa1bae27d70be3e486f05dea555a541ddf5f
           </button>
   </div>
 

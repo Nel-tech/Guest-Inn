@@ -57,7 +57,7 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             <h2 className="text-3xl font-bold leading-tight text-[#32cd32]">
-              If you have any questions, don't hesitate to contact us.
+              If you have any questions, don&apos;t hesitate to contact us.
             </h2>
           </div>
         </div>

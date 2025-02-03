@@ -1,63 +1,13 @@
-import React from 'react';
+
 import {
   MessageSquare,
   Phone,
-  Instagram,
-  Twitter,
-  Facebook,
 } from 'lucide-react';
+// import Logo from '../../assets/logo.png'
+// import { Link } from 'react-router-dom';
+import BaseFooter from './BaseFooter';
 
-const BaseFooter = () => {
-  const year = new Date().getFullYear();
-
-  return (
-    <div className="mt-8">
-      <div className="w-full border-t border-gray-500"></div>
-      <div className="w-full px-6 py-6">
-        <div className="flex flex-col items-center space-y-6 lg:flex-row lg:justify-center lg:space-x-12 lg:space-y-0">
-          <p className="text-sm text-white sm:text-base md:text-lg">
-            &copy; {year} University guest-inn All rights reserved.
-          </p>
-
-          <ul className="flex space-x-6">
-            <li>
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="text-white transition-colors hover:text-gray-300"
-              >
-                <Instagram size={24} />
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="text-white transition-colors hover:text-gray-300"
-              >
-                <Twitter size={24} />
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="text-white transition-colors hover:text-gray-300"
-              >
-                <Facebook size={24} />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const DashboardFooter = () => {
+const Footer = () => {
   return (
     <footer className="mt-32 w-full bg-transparent">
       <div className="w-full">
@@ -67,11 +17,9 @@ const DashboardFooter = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:justify-items-center md:gap-12 lg:grid-cols-4">
             {/* Company Info Section */}
             <div className="space-y-6 md:justify-self-center">
-              <a href="#" className="block">
-                <span className="font-logoFonts text-xl text-[#32CD32] sm:text-2xl">
-                  University guest
-                </span>
-              </a>
+              {/* <Link to="/" className="text-2xl font-bold text-blue-400">
+        <h1 className='pb-[2rem]'>Buk-Guest-Inn</h1>
+        </Link> */}
 
               {/* Contact Info */}
               <div className="space-y-4">
@@ -85,7 +33,7 @@ const DashboardFooter = () => {
                       href="mailto:Workifyy@gmail.com"
                       className="text-sm text-white hover:text-gray-300"
                     >
-                      Workifyy@gmail.com
+                      bukguesthouseltd@gmail.com
                     </a>
                   </div>
                 </div>
@@ -102,7 +50,7 @@ const DashboardFooter = () => {
                       href="tel:+2349081715621"
                       className="text-sm text-white hover:text-gray-300"
                     >
-                      +2349081715621
+                      +23408162298937
                     </a>
                   </div>
                 </div>
@@ -115,14 +63,7 @@ const DashboardFooter = () => {
                 Company
               </h6>
               <ul className="space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm text-white hover:text-gray-300"
-                  >
-                    About Us
-                  </a>
-                </li>
+               
                 <li>
                   <a
                     href="#"
@@ -148,14 +89,7 @@ const DashboardFooter = () => {
                 Support
               </h6>
               <ul className="space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm text-white hover:text-gray-300"
-                  >
-                    FAQ
-                  </a>
-                </li>
+                
                 <li>
                   <a
                     href="#"
@@ -197,14 +131,6 @@ const DashboardFooter = () => {
                     Terms of Use
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm text-white hover:text-gray-300"
-                  >
-                    Terms & Condition
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -216,4 +142,4 @@ const DashboardFooter = () => {
   );
 };
 
-export default DashboardFooter;
+export default Footer;

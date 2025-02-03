@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../Service/Firebase/Auth';
+import { signup } from '../../../Service/Firebase/Auth';
 import NavBar from './Navbar';
 import DashboardFooter from './footer';
 
@@ -40,7 +40,7 @@ const SignUp = () => {
     <div className="bg-zinc-900">
       <NavBar />
       <div className="flex min-h-screen flex-col items-center px-4 py-8">
-        <div className="mt-24 w-full max-w-md rounded-lg border-t-8 border-green-500 bg-zinc-800 p-6 shadow-lg">
+        <div className="mt-24 w-full max-w-md rounded-lg border-t-8 border-blue-500 bg-zinc-800 p-6 shadow-lg">
           <h1 className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">
             Sign Up
           </h1>
@@ -70,7 +70,7 @@ const SignUp = () => {
               <input
                 type="text"
                 id="username"
-                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-green-400 focus:outline-none"
+                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-blue-400 focus:outline-none"
                 required
               />
             </div>

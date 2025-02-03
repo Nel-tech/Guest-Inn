@@ -1,7 +1,7 @@
 import DashboardFooter from './footer';
 import NavBar from './Navbar';
 import { useState } from 'react';
-import { signin } from '../Service/Firebase/Auth'; // Ensure this file exists
+import { signin } from '../../../Service/Firebase/Auth'; // Ensure this file exists
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +28,7 @@ const Login = () => {
     <div className="bg-zinc-900">
       <NavBar />
       <div className="flex min-h-screen w-full flex-col items-center justify-center px-4">
-        <div className="w-full max-w-md rounded-lg border-t-8 border-green-400 bg-zinc-800 px-6 py-8 shadow-lg sm:px-8">
+        <div className="w-full max-w-md rounded-lg border-t-8 border-blue-400 bg-zinc-800 px-6 py-8 shadow-lg sm:px-8">
           <p className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">
             Login
           </p>
@@ -46,7 +46,7 @@ const Login = () => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-green-400 focus:border-2 focus:border-green-400 focus:outline-none focus:ring-green-400 sm:text-base"
+                  className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-blue-400 focus:border-2 focus:border-blue-400 focus:outline-none focus:ring-blue-400 sm:text-base"
                   required
                 />
               </div>
@@ -62,7 +62,7 @@ const Login = () => {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-green-400 focus:border-2 focus:border-green-400 focus:outline-none focus:ring-green-400"
+                  className="mt-2 w-full rounded bg-zinc-900 p-3 text-sm font-medium text-blue-400 focus:border-2 focus:border-blue-400 focus:outline-none focus:ring-blue-400"
                   required
                 />
               </div>
@@ -70,7 +70,7 @@ const Login = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="mt-4 flex h-12 w-full items-center justify-center rounded bg-green-400 text-lg font-semibold text-white hover:opacity-90 sm:h-14"
+                className="mt-4 flex h-12 w-full items-center justify-center rounded bg-blue-400 text-lg font-semibold text-white hover:opacity-90 sm:h-14"
               >
                 Login
               </button>

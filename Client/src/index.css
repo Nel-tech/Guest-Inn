@@ -1,4 +1,13 @@
 
+@tailwind utilities;
 @import "tailwindcss";
 @import "../node_modules/slick-carousel/slick/slick.css";
 @import "../node_modules/slick-carousel/slick/slick-theme.css";
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+   @apply relative bg-[#18181b] mix-blend-multiply;
+
+  }
+}

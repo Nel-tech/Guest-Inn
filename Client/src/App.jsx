@@ -1,27 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RoomPage from './RoomDetails/RoomDetails';
- import SignUp from './Pages/Auth/signUp';
-// import BookingReceipt from './Receipt';
-// import PaymentForm from './PaymentForm';
+import RoomDetails from './RoomDetails/DetailsIntro/RoomPage';
+import SignUp from './Pages/Auth/signUp';
 import Login from './Pages/Auth/login';
 import './index.css';
 import Home from './Pages/Home/Home';
+import ReservationForm from './Pages/Reservation/Reservation';
+import { ReservationProvider } from './Pages/Hooks/UseContext';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/room-details/:roomId" element={<RoomPage />} />
-        <Route path="/Signup" element={<SignUp />} />
-        <Route path="/Login" element={<Login />} />
-        {/* <Route path="/Payment" element={<PaymentForm />} /> */}
-        {/* <Route
-          path="/receipt"
-          element={<BookingReceipt receiptData={sampleReceiptData} />}
-        /> */}
-      </Routes>
-    </Router>
+    <ReservationProvider> 
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/room-details/:roomId" element={<RoomDetails />} />
+          <Route path="/Signup" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/reservation/:roomId" element={<ReservationForm />} />
+        </Routes>
+      </Router>
+    </ReservationProvider>
   );
 }
 

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../../Service/Firebase/Auth';
-import NavBar from './Navbar';
-import DashboardFooter from './footer';
+// import NavBar from './Navbar';
+// import DashboardFooter from './footer';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ const SignUp = () => {
       if (isSignup) {
         await signup(email, password, passwordConfirm);
         window.alert('Account successfully created');
-        navigate('/menu');
+        navigate('/reservation');
       }
     } catch (error) {
       console.error('Error occurred:', error);
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <div className="bg-zinc-900">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="flex min-h-screen flex-col items-center px-4 py-8">
         <div className="mt-24 w-full max-w-md rounded-lg border-t-8 border-blue-500 bg-zinc-800 p-6 shadow-lg">
           <h1 className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">
@@ -60,20 +60,7 @@ const SignUp = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>
-              <label
-                className="mb-1 block text-sm font-bold text-gray-400"
-                htmlFor="username"
-              >
-                Full name
-              </label>
-              <input
-                type="text"
-                id="username"
-                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-blue-400 focus:outline-none"
-                required
-              />
-            </div>
+          
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -108,20 +95,20 @@ const SignUp = () => {
             </div>
             <button
               type="submit"
-              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-emerald-400 text-sm font-semibold text-white hover:bg-emerald-500 sm:text-lg"
+              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-blue-400 text-sm font-semibold text-white hover:bg-emerald-500 sm:text-lg"
             >
               Sign Up
             </button>
             <p className="mt-4 text-center text-sm text-white">
               Already have an account?{' '}
-              <a href="/login" className="text-emerald-400 underline">
+              <a href="/login" className="text-blue-400 underline">
                 Log in
               </a>
             </p>
           </form>
         </div>
       </div>
-      <DashboardFooter />
+      {/* <DashboardFooter /> */}
     </div>
   );
 };

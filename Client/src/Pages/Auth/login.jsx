@@ -1,5 +1,5 @@
-import DashboardFooter from './footer';
-import NavBar from './Navbar';
+// import DashboardFooter from './footer';
+// import NavBar from './Navbar';
 import { useState } from 'react';
 import { signin } from '../../../Service/Firebase/Auth'; // Ensure this file exists
 
@@ -26,7 +26,7 @@ const Login = () => {
 
   return (
     <div className="bg-zinc-900">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="flex min-h-screen w-full flex-col items-center justify-center px-4">
         <div className="w-full max-w-md rounded-lg border-t-8 border-blue-400 bg-zinc-800 px-6 py-8 shadow-lg sm:px-8">
           <p className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">
@@ -86,7 +86,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-      <DashboardFooter />
+      {/* <DashboardFooter /> */}
     </div>
   );
 };

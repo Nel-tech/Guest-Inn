@@ -2,7 +2,7 @@ import { GuestReview } from "../../Mocks/Data"
 function GuestReviews() {
   return (
     <div>
- <div className="w-full rounded-xl bg-zinc-800 p-4 lg:w-3/5 lg:p-6">
+ <div className="w-full mt-[7rem] ml-[2rem] rounded-xl bg-zinc-800 p-4 lg:w-3/5 lg:p-6">
             <h2 className="text-2xl font-bold text-blue-400">
               Guest Reviews
             </h2>

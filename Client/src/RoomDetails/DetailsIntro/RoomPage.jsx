@@ -1,52 +1,51 @@
-
-import { useReservation } from "../../Pages/Hooks/UseContext"; 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useParams } from "react-router-dom";
-import { featuredRooms } from "../../Mocks/Data";
-import { useNavigate } from "react-router-dom";
-import NavBar from "../../Pages/Components/Navbar";
-import GuestReviews from "../GuestReviews/GuestReviews";
-import Footer from "../../Pages/Components/footer";
+import { useReservation } from '../../Pages/Hooks/UseContext';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useParams } from 'react-router-dom';
+import { featuredRooms } from '../../Mocks/Data';
+import { useNavigate } from 'react-router-dom';
+import NavBar from '../../Pages/Components/Navbar';
+import GuestReviews from '../GuestReviews/GuestReviews';
+import Footer from '../../Pages/Components/footer';
 function RoomPage() {
-    const navigate = useNavigate();
-    const { roomId } = useParams();
-    const room = featuredRooms.find(
-      (room) => room.name.replace(/\s+/g, "-").toLowerCase() === roomId
-    );
+  const navigate = useNavigate();
+  const { roomId } = useParams();
+  const room = featuredRooms.find(
+    (room) => room.name.replace(/\s+/g, '-').toLowerCase() === roomId
+  );
 
-    const { setSelectedRoom } = useReservation(); 
+  const { setSelectedRoom } = useReservation();
 
-    const handleBooking = () => {
-      setSelectedRoom(room); 
-      localStorage.setItem("selectedRoom", JSON.stringify(room)); 
-      navigate("/Signup"); 
-    };
+  const handleBooking = () => {
+    setSelectedRoom(room);
+    localStorage.setItem('selectedRoom', JSON.stringify(room));
+    navigate('/Signup');
+  };
 
-    if (!room) {
-      return <p className="text-center text-red-500">Room not found!</p>;
-    }
+  if (!room) {
+    return <p className="text-center text-red-500">Room not found!</p>;
+  }
 
-    const settings = {
-      dots: false,
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      adaptiveHeight: true,
-    };
+  const settings = {
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+  };
 
-    return (
-      <div>
-        <header>
-          <NavBar/>
-        </header>
+  return (
+    <div>
+      <header>
+        <NavBar />
+      </header>
 
-      <div className="mt-[14rem] px-[2rem]">
+      <div className="mt-[8rem] px-[2rem]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-between">
           {/* Room Info */}
           <div className="w-full rounded-xl bg-zinc-800 p-4 shadow-lg lg:w-1/2 lg:p-6">
@@ -57,21 +56,26 @@ function RoomPage() {
               {room.description}
             </p>
 
-            <div className="mt-4 space-y-2 text-sm md:text-base text-gray-300">
+            <div className="mt-4 space-y-2 text-sm text-gray-300 md:text-base">
               <p>
                 <strong className="text-blue-400">Bed Type:</strong> {room.bed}
               </p>
               <p>
-                <strong className="text-blue-400">Room Size:</strong> {room.size} sqft
+                <strong className="text-blue-400">Room Size:</strong>{' '}
+                {room.size} sqft
               </p>
               <p>
-                <strong className="text-blue-400">Rating:</strong> ⭐ {room.rating}/5
+                <strong className="text-blue-400">Rating:</strong> ⭐{' '}
+                {room.rating}/5
               </p>
             </div>
 
             <ul className="mt-6 space-y-2">
               {room.facilities.map((facility, index) => (
-                <li key={index} className="flex items-center text-white gap-2 text-sm md:text-base">
+                <li
+                  key={index}
+                  className="flex items-center gap-2 text-sm text-white md:text-base"
+                >
                   <span className="text-blue-400">✔</span>
                   {facility}
                 </li>
@@ -81,10 +85,13 @@ function RoomPage() {
             <div className="mt-6 text-lg font-semibold md:text-xl">
               <span className="text-white">
                 <span className="text-blue-400">${room.price}</span> / night
-              </span>  
+              </span>
             </div>
-         
-            <button onClick={handleBooking} className="mt-6 w-full rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition-colors hover:bg-blue-600 md:w-auto">
+
+            <button
+              onClick={handleBooking}
+              className="mt-6 w-full rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition-colors hover:bg-blue-600 md:w-auto"
+            >
               Book Now
             </button>
           </div>
@@ -120,15 +127,15 @@ function RoomPage() {
         </div>
       </div>
 
-     <section>
-      <GuestReviews/>
-     </section>
+      <section>
+        <GuestReviews />
+      </section>
 
-     <footer>
-      <Footer/>
-     </footer>
-      </div>
-    );
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
 }
 
 export default RoomPage;

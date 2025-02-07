@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../../../Service/Firebase/Auth';
+// import { signup } from '../../../Service/Firebase/Auth';
 // import NavBar from './Navbar';
 // import DashboardFooter from './footer';
 
@@ -22,7 +22,7 @@ const SignUp = () => {
 
     try {
       if (isSignup) {
-        await signup(email, password, passwordConfirm);
+        // await signup(email, password, passwordConfirm);
         window.alert('Account successfully created');
         navigate('/reservation');
       }
@@ -55,12 +55,12 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
-                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none"
+                className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-blue-400 focus:border-2 focus:border-blue-400 focus:outline-none"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-          
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -72,7 +72,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   id="password"
-                  className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none"
+                  className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-blue-400 focus:border-2 focus:border-blue-400 focus:outline-none"
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -87,7 +87,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   id="passwordConfirm"
-                  className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none"
+                  className="h-10 w-full rounded bg-zinc-900 p-3 text-sm text-blue-400 focus:border-2 focus:border-blue-400 focus:outline-none"
                   required
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
@@ -95,13 +95,13 @@ const SignUp = () => {
             </div>
             <button
               type="submit"
-              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-blue-400 text-sm font-semibold text-white hover:bg-emerald-500 sm:text-lg"
+              className="mt-4 flex h-10 w-full items-center justify-center rounded bg-blue-400 text-sm font-semibold text-white hover:bg-blue-500 sm:text-lg"
             >
               Sign Up
             </button>
             <p className="mt-4 text-center text-sm text-white">
               Already have an account?{' '}
-              <a href="/login" className="text-blue-400 underline">
+              <a href="/login" className="text-blue-500 underline">
                 Log in
               </a>
             </p>

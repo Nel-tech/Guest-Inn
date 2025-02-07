@@ -1,7 +1,7 @@
 // import DashboardFooter from './footer';
 // import NavBar from './Navbar';
 import { useState } from 'react';
-import { signin } from '../../../Service/Firebase/Auth'; // Ensure this file exists
+// import { signin } from '../../../Service/Firebase/Auth'; // Ensure this file exists
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await signin(email, password);
+      // await signin(email, password);
       window.alert('Login Successfully');
       // Navigate('/summary') // Uncomment if using navigation
     } catch (error) {
@@ -77,7 +77,7 @@ const Login = () => {
               <div className="mt-4 text-center">
                 <p className="text-sm text-white sm:text-base">
                   Do not have an account?{' '}
-                  <a href="/signup" className="text-emerald-400 underline">
+                  <a href="/signup" className="text-blue-500 underline">
                     Signup
                   </a>
                 </p>

@@ -6,8 +6,9 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth } from './Config';
-// import { FirebaseError } from 'firebase/app';
+ import { FirebaseError } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import axios from 'axios';
 
 
 export const signup = async (email, password, passwordConfirm) => {
@@ -20,11 +21,15 @@ export const signup = async (email, password, passwordConfirm) => {
     console.log('User signed up:', userCredential.user);
 
   } catch (error) {
-    if (error.code === 'auth/email-already-in-use') {
-      throw new Error('The email is already in use. Please log in instead.');
+    if (error instanceof FirebaseError) {
+      if (error.code === 'auth/email-already-in-use') {
+        throw new Error('The email is already in use. Please log in instead.');
+      }
+      console.error('Error signing up:', error.message);
+    } else {
+      console.error('Unknown error:', error);
+      throw error; // Rethrow the error to handle it further upstream if needed.
     }
-    console.error('Error signing up:', error.message);
-    throw error; // Rethrow the error to handle it further upstream if needed.
   }
 };
 
@@ -35,10 +40,14 @@ export const signin = async (email, password) => {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     console.log('User signed in:', userCredential.user);
   } catch (error) {
-    if (error.code === 'auth/invalid-credential') {
-      throw new Error('Invalid Email or password.');
+    if (error instanceof FirebaseError) {
+      if (error.code === 'auth/invalid-credential') {
+        throw new Error('Invalid Email or password.');
+      }
+      console.error('Error signing up:', error.message);
+    } else {
+      console.error('Unknown error:', error);
     }
-    console.error('Error signing in:', error.message);
   }
 };
 
@@ -63,3 +72,29 @@ export const getCurrentUser = async () => {
     return null;
   }
 };
+
+// Payment Gateway
+
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
+  const { reference } = req.body;
+
+  try {
+    const response = await axios.get(
+      `https://api.paystack.co/transaction/verify/${reference}`,
+      {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.PAYSTACK_SECRET_KEY}`,
+        },
+      }
+    );
+
+    return res.status(200).json(response.data);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+}

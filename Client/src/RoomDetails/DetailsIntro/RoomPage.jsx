@@ -1,4 +1,4 @@
-import { useReservation } from '../../Pages/Hooks/UseContext';
+import { useReservation } from '../../Pages/Context/UseContext';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -26,6 +26,7 @@ function RoomPage() {
   if (!room) {
     return <p className="text-center text-red-500">Room not found!</p>;
   }
+ 
 
   const settings = {
     dots: false,

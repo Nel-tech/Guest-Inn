@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useAuth } from '../Context/AuthContext';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,13 +47,42 @@ const NavBar = () => {
         </div>
 
         {/* Login Button */}
-        <div className="hidden md:flex">
+        {/* <div className="hidden md:flex">
           <Link to="/login">
             <button className="cursor-pointer rounded bg-blue-500 px-4 py-2 text-white transition-all duration-500 ease-in-out hover:bg-zinc-900 hover:text-blue-500">
               Login
             </button>
           </Link>
-        </div>
+        </div> */}
+
+        {user ? (
+          <Link
+              to="/profile"
+              className="text-lg text-gray-300 hover:text-blue-400"
+            >
+              Profile
+            </Link>
+        ): (
+           <Link
+              to="/login"
+              className="text-lg text-gray-300 hover:text-blue-400"
+            >
+             <button className="cursor-pointer rounded bg-blue-500 px-4 py-2 text-white transition-all duration-500 ease-in-out hover:bg-zinc-900 hover:text-blue-500">
+              Login
+            </button>
+            </Link>
+        )}
+
+
+        {/* Logout Button for Authenticated Users */}
+        {user && (
+          <button
+            onClick={logout}
+            className="hidden md:flex cursor-pointer rounded bg-red-500 px-4 py-2 text-white transition-all duration-500 ease-in-out hover:bg-zinc-900 hover:text-red-500"
+          >
+            Logout
+          </button>
+        )}
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
@@ -62,7 +93,7 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Menu Drawer */}
-      <div
+      {/* <div
         className={`fixed right-0 top-0 h-full w-64 transform bg-zinc-900 text-white ${menuOpen ? 'translate-x-0' : 'translate-x-full'} shadow-lg transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div className="flex items-center justify-between border-b border-gray-700 p-5">
@@ -93,7 +124,7 @@ const NavBar = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };

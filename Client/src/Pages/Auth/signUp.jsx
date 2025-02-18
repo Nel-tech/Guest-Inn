@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import { signup } from '../../../Service/Firebase/Auth';
-// import NavBar from './Navbar';
+import { useState,  } from 'react';
+ import { useNavigate } from 'react-router-dom';
+import { signup } from '../../../Service/Firebase/Auth';
+import NavBar from '../Components/Navbar';
+// import { useParams } from 'react-router-dom';
 // import DashboardFooter from './footer';
 
 const SignUp = () => {
@@ -10,8 +11,7 @@ const SignUp = () => {
   const [passwordConfirm, setConfirmPassword] = useState('');
   const [isSignup] = useState(true);
 
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,9 +22,9 @@ const SignUp = () => {
 
     try {
       if (isSignup) {
-        // await signup(email, password, passwordConfirm);
+       await signup(email, password, passwordConfirm);
         window.alert('Account successfully created');
-        navigate('/reservation');
+        navigate(`/reservation`);
       }
     } catch (error) {
       console.error('Error occurred:', error);
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <div className="bg-zinc-900">
-      {/* <NavBar /> */}
+      <NavBar />
       <div className="flex min-h-screen flex-col items-center px-4 py-8">
         <div className="mt-24 w-full max-w-md rounded-lg border-t-8 border-blue-500 bg-zinc-800 p-6 shadow-lg">
           <h1 className="mb-6 text-center text-2xl font-semibold text-white sm:text-3xl">

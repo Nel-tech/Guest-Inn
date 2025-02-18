@@ -6,22 +6,25 @@ import './index.css';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Home from './Pages/Home/Home';
 import ReservationForm from './Pages/Reservation/Reservation';
-import { ReservationProvider } from './Pages/Hooks/UseContext';
+import { ReservationProvider } from './Pages/Context/UseContext';
+import { AuthProvider } from './Pages/Context/AuthContext';
 
 function App() {
   return (
-    <ReservationProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/room-details/:roomId" element={<RoomDetails />} />
-          <Route path="/Signup" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/reservation/:roomId" element={<ReservationForm />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-      </Router>
-    </ReservationProvider>
+    <Router>
+      <AuthProvider>
+        <ReservationProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/room-details/:roomId" element={<RoomDetails />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/reservation" element={<ReservationForm />} />
+          </Routes>
+        </ReservationProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

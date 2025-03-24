@@ -6,12 +6,13 @@ import './index.css';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Home from './Pages/Home/Home';
 import ReservationForm from './Pages/Reservation/Reservation';
+import Receipt from './Pages/Reservation/Receipt';
 import { ReservationProvider } from './Pages/Context/UseContext';
 import { AuthProvider } from './Pages/Context/AuthContext';
-
+import ProtectedRoute from './Pages/Components/Protected';
 function App() {
   return (
-    <Router>
+   <Router>
       <AuthProvider>
         <ReservationProvider>
           <Routes>
@@ -20,7 +21,32 @@ function App() {
             <Route path="/room-details/:roomId" element={<RoomDetails />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/reservation" element={<ReservationForm />} />
+
+            {/* 🔐 Protect routes that require authentication */}
+            <Route
+              path="/reservations"
+              element={
+                <ProtectedRoute>
+                  <ReservationForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/booking-confirmation"
+              element={
+                <ProtectedRoute>
+                  <Receipt />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/receipt/:paymentId"
+              element={
+                <ProtectedRoute>
+                  <Receipt />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </ReservationProvider>
       </AuthProvider>

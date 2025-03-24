@@ -8,7 +8,6 @@ import {
 import { auth } from './Config';
  import { FirebaseError } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import axios from 'axios';
 
 
 export const signup = async (email, password, passwordConfirm) => {
@@ -76,25 +75,4 @@ export const getCurrentUser = async () => {
 // Payment Gateway
 
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
 
-  const { reference } = req.body;
-
-  try {
-    const response = await axios.get(
-      `https://api.paystack.co/transaction/verify/${reference}`,
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.PAYSTACK_SECRET_KEY}`,
-        },
-      }
-    );
-
-    return res.status(200).json(response.data);
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-}

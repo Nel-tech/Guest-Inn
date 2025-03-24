@@ -2,31 +2,58 @@ import { useReservation } from '../../Pages/Context/UseContext';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { featuredRooms } from '../../Mocks/Data';
-import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Pages/Components/Navbar';
 import GuestReviews from '../GuestReviews/GuestReviews';
 import Footer from '../../Pages/Components/footer';
+import { db } from '../../../Service/Firebase/Config';
+import { addDoc, collection } from 'firebase/firestore';
+import { useAuth } from '../../Pages/Context/AuthContext';
+
 function RoomPage() {
   const navigate = useNavigate();
-  const { roomId } = useParams();
-  const room = featuredRooms.find(
-    (room) => room.name.replace(/\s+/g, '-').toLowerCase() === roomId
-  );
+  const { roomId } = useParams()
+
+const room = featuredRooms.find((room) => room.id.toString() === roomId);
+const {user} = useAuth()
 
   const { setSelectedRoom } = useReservation();
 
-  const handleBooking = () => {
-    setSelectedRoom(room);
-    localStorage.setItem('selectedRoom', JSON.stringify(room));
-    navigate('/Signup');
-  };
+async function SelectRoom() {
+    try {
+      if (!room) return;
+      
+      if (user) {
+        setSelectedRoom(room);
+        navigate(`/reservations`);
+      } else {
+        // If user is not authenticated, save room details & go to signup
+        const docRef = await addDoc(collection(db, "rooms"), {
+          roomId: room.id,
+          roomName: room.name,
+          price: room.price,
+          bed: room.bed,  
+          description: room.description, 
+          facilities: room.facilities, 
+          image: room.image,
+          rating: room.rating, 
+          size: room.size, 
+          createdAt: new Date(),
+          status: "pending" 
+        });
+
+        setSelectedRoom({ ...room, roomsId: docRef.id });
+        navigate(`/signup?roomId=${room.id}`);
+      }
+    } catch (e) {
+      console.error("Error booking room: ", e);
+    }
+  }
 
   if (!room) {
     return <p className="text-center text-red-500">Room not found!</p>;
   }
- 
 
   const settings = {
     dots: false,
@@ -85,12 +112,12 @@ function RoomPage() {
 
             <div className="mt-6 text-lg font-semibold md:text-xl">
               <span className="text-white">
-                <span className="text-blue-400">${room.price}</span> / night
+                <span className="text-blue-400">#{room.price}</span> / night
               </span>
             </div>
 
             <button
-              onClick={handleBooking}
+              onClick={SelectRoom}
               className="mt-6 w-full rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition-colors hover:bg-blue-600 md:w-auto"
             >
               Book Now
@@ -101,27 +128,25 @@ function RoomPage() {
           <div className="w-full lg:w-1/2">
             <div className="h-full rounded-xl shadow-lg">
               <Slider {...settings} className="h-full">
-                <div className="h-full">
-                  <img
-                    src="/assets/roomie.jpg"
-                    className="h-[28rem] w-full rounded-xl object-cover object-center"
-                    alt="Room 1"
-                  />
-                </div>
-                <div className="h-full">
-                  <img
-                    src="/assets/roomie.jpg"
-                    className="h-[28rem] w-full rounded-xl object-cover object-center"
-                    alt="Room 2"
-                  />
-                </div>
-                <div className="h-full">
-                  <img
-                    src="/assets/roomie.jpg"
-                    className="h-[28rem] w-full rounded-xl object-cover object-center"
-                    alt="Room 3"
-                  />
-                </div>
+                {Array.isArray(room.image) ? (
+                  room.image.map((img, index) => (
+                    <div key={index} className="h-full">
+                      <img
+                        src={img}
+                        className="h-[28rem] w-full rounded-xl object-cover object-center"
+                        alt={`Room ${index + 1}`}
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <div className="h-full">
+                    <img
+                      src={room.image}
+                      className="h-[28rem] w-full rounded-xl object-cover object-center"
+                      alt="Room Image"
+                    />
+                  </div>
+                )}
               </Slider>
             </div>
           </div>

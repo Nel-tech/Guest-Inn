@@ -46,21 +46,13 @@ const NavBar = () => {
           </Link>
         </div>
 
-        {/* Login Button */}
-        {/* <div className="hidden md:flex">
-          <Link to="/login">
-            <button className="cursor-pointer rounded bg-blue-500 px-4 py-2 text-white transition-all duration-500 ease-in-out hover:bg-zinc-900 hover:text-blue-500">
-              Login
-            </button>
-          </Link>
-        </div> */}
 
         {user ? (
           <Link
               to="/profile"
               className="text-lg text-gray-300 hover:text-blue-400"
             >
-              Profile
+            
             </Link>
         ): (
            <Link
@@ -92,39 +84,7 @@ const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Drawer */}
-      {/* <div
-        className={`fixed right-0 top-0 h-full w-64 transform bg-zinc-900 text-white ${menuOpen ? 'translate-x-0' : 'translate-x-full'} shadow-lg transition-transform duration-300 ease-in-out md:hidden`}
-      >
-        <div className="flex items-center justify-between border-b border-gray-700 p-5">
-          <p className="text-lg font-bold">Menu</p>
-          <button onClick={() => setMenuOpen(false)} className="text-white">
-            <X size={28} />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6 p-6">
-          <Link
-            to="/"
-            className="text-lg text-gray-300 hover:text-blue-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className="text-lg text-gray-300 hover:text-blue-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            About Us
-          </Link>
-
-          <Link to="/login" className="mt-4">
-            <button className="w-full rounded bg-blue-500 px-4 py-2 text-white transition-all duration-500 ease-in-out hover:bg-zinc-900 hover:text-blue-500">
-              Login
-            </button>
-          </Link>
-        </div>
-      </div> */}
+     
     </header>
   );
 };

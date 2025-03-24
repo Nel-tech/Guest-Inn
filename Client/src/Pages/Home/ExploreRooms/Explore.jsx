@@ -59,13 +59,14 @@ function Explore() {
                     <h3 className="mb-2 text-xl font-semibold text-blue-400">{room.name}</h3>
                     <p className="mb-2 text-gray-400">{room.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-blue-400">${room.price}/night</span>
-                      <Link
-                to={`/room-details/${room.name.replace(/\s+/g, "-").toLowerCase()}`}
-                className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-              >
-                View Details
-              </Link>
+                      <span className="font-bold text-blue-400">#{room.price}/night</span>
+                    <Link
+  to={`/room-details/${room.id}`} 
+  className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+>
+  View Details
+</Link>
+
                     </div>
                   </div>
                 </div>

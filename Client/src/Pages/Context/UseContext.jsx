@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ReservationContext = createContext();
 
 export const ReservationProvider = ({ children }) => {
-  const [selectedRoom, setSelectedRoom] = useState(null);
+  const [selectedRoom, setSelectedRoom] = useState();
 
   return (
     <ReservationContext.Provider value={{ selectedRoom, setSelectedRoom }}>

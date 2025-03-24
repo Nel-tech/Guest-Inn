@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import NavBar from '../../Components/Navbar';
 
 function HeroSection() {
@@ -21,9 +21,7 @@ function HeroSection() {
             Experience comfort and convenience like never before.
           </p>
 
-          <button className="rounded bg-blue-400 px-6 py-3 text-xl font-semibold text-black shadow-lg transition duration-300 hover:bg-blue-500">
-            Explore Rooms
-          </button>
+          
         </div>
       </section>
     </div>
